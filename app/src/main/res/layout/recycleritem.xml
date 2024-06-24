@@ -7,7 +7,7 @@
     android:background="@color/green">
 
     <TextView
-        android:id="@+id/ID"
+        android:id="@+id/Year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -27,6 +27,7 @@
         android:text="launch"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ID"
+        app:layout_constraintStart_toEndOf="@+id/Year"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

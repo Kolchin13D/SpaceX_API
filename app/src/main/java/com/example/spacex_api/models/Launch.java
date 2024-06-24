@@ -1,5 +1,10 @@
 package com.example.spacex_api.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import com.example.spacex_api.models.info.LaunchFailureDetails;
 import com.example.spacex_api.models.info.LaunchSite;
 import com.example.spacex_api.models.info.Links;
@@ -14,7 +19,7 @@ import java.util.List;
 import javax.annotation.Generated;
 
 @Generated("jsonschema2pojo")
-public class Result {
+public class Launch implements Parcelable {
 
     @SerializedName("flight_number")
     @Expose
@@ -281,4 +286,15 @@ public class Result {
         this.crew = crew;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeInt(flightNumber);
+        dest.writeString(launchYear);
+
+    }
 }
