@@ -1,6 +1,6 @@
 package com.example.spacex_api.services;
 
-import com.example.spacex_api.models.LaunchsResponse;
+import com.example.spacex_api.models.Launch;
 import com.example.spacex_api.models.Test.ListUsersResponse;
 
 import retrofit2.Call;
@@ -11,10 +11,15 @@ import retrofit2.http.Query;
 public interface GetData {
 
     @GET("launches/past")
-    Call<LaunchsResponse> getPastLaunches(
-            @Path("launch_year") int launch_year,
-            @Path("flight_number") int flight_number
+    Call<Launch> getPastLaunches(
+            @Query("launch_year") int launch_year,
+            @Query("flight_number") int flight_number
 
+    );
+
+    @GET("launches")
+    Call<Launch> getLaunch(
+            @Query("flight_number") int flight_number
     );
 
     @GET("api/users")

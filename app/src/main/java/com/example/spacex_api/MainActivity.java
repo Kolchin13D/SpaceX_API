@@ -1,8 +1,6 @@
 package com.example.spacex_api;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,23 +10,21 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.spacex_api.adapters.LaunchAdapter;
-import com.example.spacex_api.models.LaunchsResponse;
 import com.example.spacex_api.models.Launch;
-import com.example.spacex_api.models.Test.ListUsersResponse;
 import com.example.spacex_api.models.Test.UserResponse;
 import com.example.spacex_api.services.GetData;
 import com.example.spacex_api.services.RetrofitInstance;
 
-import org.jetbrains.annotations.TestOnly;
-
-import java.io.IOException;
 import java.util.ArrayList;
 
-import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Launch> launches;
+    ArrayList<UserResponse> users;
+
     private RecyclerView recyclerView;
     private LaunchAdapter launchAdapter;
 
@@ -44,18 +40,28 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    RetrofitInstance.Test();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+//        Thread thread = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    RetrofitInstance.Test2();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//        thread.start();
 
-        thread.start();
+
+        String BASE_URL2 = "https://api.spacexdata.com/v3/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL2)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        GetData getData = retrofit.create(GetData.class);
+        getData.getLaunch(1);
 
     }
 }
