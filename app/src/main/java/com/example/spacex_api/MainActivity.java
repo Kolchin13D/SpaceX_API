@@ -43,26 +43,19 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        GetLaunches();
 
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    RetrofitInstance.Test();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
-    }
-
-    @TestOnly
-    private void GetLaunches() {
-
-        int page = 2;
-
-        Response<UserResponse> response = GetData.
-
-        assert response.isSuccessful() : "response is not Successful";
-
-        Log.v("RESPONSE", response.message());
-
-        ListUsersResponse userResponse = response.body();
-        assert userResponse.equals("") : "launchsResponse equals null";
+        thread.start();
 
     }
-
-
 }

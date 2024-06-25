@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-public static interface GetData {
+public interface GetData {
 
     @GET("launches/past")
     Call<LaunchsResponse> getPastLaunches(
