@@ -1,6 +1,12 @@
 package com.example.spacex_api;
 
+import static com.example.spacex_api.services.RetrofitInstance.Test;
+
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +21,7 @@ import com.example.spacex_api.models.Test.UserResponse;
 import com.example.spacex_api.services.GetData;
 import com.example.spacex_api.services.RetrofitInstance;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import retrofit2.Retrofit;
@@ -33,35 +40,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
+        TextView textView333 = findViewById(R.id.text333);
+        Button button = findViewById(R.id.button);
 
-//        Thread thread = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    RetrofitInstance.Test2();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//        thread.start();
-
-
-        String BASE_URL2 = "https://api.spacexdata.com/v3/";
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL2)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        GetData getData = retrofit.create(GetData.class);
-        getData.getLaunch(1);
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    //textView333.setText(RetrofitInstance.Test());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.start();
 
     }
 }

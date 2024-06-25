@@ -28,8 +28,8 @@ public class LaunchAdapter extends RecyclerView.Adapter<LaunchAdapter.LaunchView
 
     @Override
     public void onBindViewHolder(@NonNull LaunchViewHolder holder, int position) {
-        holder.YEAR.setText(launches.get(position).getLaunchYear());
-        holder.NUMBER.setText(launches.get(position).getFlightNumber());
+        //holder.YEAR.setText(launches.get(position).getLaunch_year());
+        //holder.NUMBER.setText(launches.get(position).getFlight_number());
     }
 
     @Override

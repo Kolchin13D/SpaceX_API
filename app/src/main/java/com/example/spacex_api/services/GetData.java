@@ -3,6 +3,8 @@ package com.example.spacex_api.services;
 import com.example.spacex_api.models.Launch;
 import com.example.spacex_api.models.Test.ListUsersResponse;
 
+import java.util.function.Function;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -17,9 +19,9 @@ public interface GetData {
 
     );
 
-    @GET("launches")
+    @GET("launches/{flight_number}")
     Call<Launch> getLaunch(
-            @Query("flight_number") int flight_number
+            @Path("flight_number") int flight_number
     );
 
     @GET("api/users")

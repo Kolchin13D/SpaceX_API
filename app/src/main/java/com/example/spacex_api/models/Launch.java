@@ -14,9 +14,158 @@ import com.example.spacex_api.models.rocket.Rocket;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Generated;
+
+
+public class Launch{
+    public int flight_number;
+    public String mission_name;
+    public ArrayList<String> mission_id;
+    public boolean upcoming;
+    public String launch_year;
+    public int launch_date_unix;
+    public Date launch_date_utc;
+    public Date launch_date_local;
+    public boolean is_tentative;
+    public String tentative_max_precision;
+    public boolean tbd;
+    public int launch_window;
+    public Rocket rocket;
+    public ArrayList<String> ships;
+    public Telemetry telemetry;
+    public LaunchSite launch_site;
+    public boolean launch_success;
+    public LaunchFailureDetails launch_failure_details;
+    public Links links;
+    public String details;
+    public Date static_fire_date_utc;
+    public int static_fire_date_unix;
+    public Timeline timeline;
+
+    public Launch(int flight_number, String mission_name, ArrayList<String> mission_id, boolean upcoming, String launch_year, int launch_date_unix, Date launch_date_utc, Date launch_date_local, boolean is_tentative, String tentative_max_precision, boolean tbd, int launch_window, Rocket rocket, ArrayList<String> ships, Telemetry telemetry, LaunchSite launch_site, boolean launch_success, LaunchFailureDetails launch_failure_details, Links links, String details, Date static_fire_date_utc, int static_fire_date_unix, Timeline timeline) {
+        this.flight_number = flight_number;
+        this.mission_name = mission_name;
+        this.mission_id = mission_id;
+        this.upcoming = upcoming;
+        this.launch_year = launch_year;
+        this.launch_date_unix = launch_date_unix;
+        this.launch_date_utc = launch_date_utc;
+        this.launch_date_local = launch_date_local;
+        this.is_tentative = is_tentative;
+        this.tentative_max_precision = tentative_max_precision;
+        this.tbd = tbd;
+        this.launch_window = launch_window;
+        this.rocket = rocket;
+        this.ships = ships;
+        this.telemetry = telemetry;
+        this.launch_site = launch_site;
+        this.launch_success = launch_success;
+        this.launch_failure_details = launch_failure_details;
+        this.links = links;
+        this.details = details;
+        this.static_fire_date_utc = static_fire_date_utc;
+        this.static_fire_date_unix = static_fire_date_unix;
+        this.timeline = timeline;
+    }
+
+    public int getFlight_number() {
+        return flight_number;
+    }
+
+    public String getMission_name() {
+        return mission_name;
+    }
+
+    public ArrayList<String> getMission_id() {
+        return mission_id;
+    }
+
+    public boolean isUpcoming() {
+        return upcoming;
+    }
+
+    public String getLaunch_year() {
+        return launch_year;
+    }
+
+    public int getLaunch_date_unix() {
+        return launch_date_unix;
+    }
+
+    public Date getLaunch_date_utc() {
+        return launch_date_utc;
+    }
+
+    public Date getLaunch_date_local() {
+        return launch_date_local;
+    }
+
+    public boolean isIs_tentative() {
+        return is_tentative;
+    }
+
+    public String getTentative_max_precision() {
+        return tentative_max_precision;
+    }
+
+    public boolean isTbd() {
+        return tbd;
+    }
+
+    public int getLaunch_window() {
+        return launch_window;
+    }
+
+    public Rocket getRocket() {
+        return rocket;
+    }
+
+    public ArrayList<String> getShips() {
+        return ships;
+    }
+
+    public Telemetry getTelemetry() {
+        return telemetry;
+    }
+
+    public LaunchSite getLaunch_site() {
+        return launch_site;
+    }
+
+    public boolean isLaunch_success() {
+        return launch_success;
+    }
+
+    public LaunchFailureDetails getLaunch_failure_details() {
+        return launch_failure_details;
+    }
+
+    public Links getLinks() {
+        return links;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public Date getStatic_fire_date_utc() {
+        return static_fire_date_utc;
+    }
+
+    public int getStatic_fire_date_unix() {
+        return static_fire_date_unix;
+    }
+
+    public Timeline getTimeline() {
+        return timeline;
+    }
+
+
+/*
 
 @Generated("jsonschema2pojo")
 public class Launch implements Parcelable {
@@ -297,4 +446,8 @@ public class Launch implements Parcelable {
         dest.writeString(launchYear);
 
     }
+
+
+ */
+
 }
