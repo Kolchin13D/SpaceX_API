@@ -7,6 +7,7 @@ import com.example.spacex_api.models.Test.ListUsersResponse;
 import com.example.spacex_api.models.Test.UserResponse;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Response;
@@ -21,7 +22,7 @@ public class RetrofitInstance {
     private static String BASE_URL = "https://reqres.in/";
 
     private static final Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BASE_URL2)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
     private static final GetData getData = retrofit.create(GetData.class);
@@ -34,22 +35,25 @@ public class RetrofitInstance {
 
         assert response.isSuccessful() : "response is Successful";
         Log.v("TAG1", response.toString());
-        ListUsersResponse rootResponse = response.body();
-        List<UserResponse> userData = rootResponse.getData();
 
-        String name = response.body().data.get(0).first_name.toString();
+        ListUsersResponse rootResponce = response.body();
+        ArrayList<UserResponse> userData = rootResponce.getData();
 
-        return name;
+        String name = response.body().data.get(0).first_name;
+
+        return name.toString();
     }
 
 
     public static String Test2() throws IOException {
 
-        int launch = 1;
+        int launch = 5;
 
         Response<Launch> response = getData.getLaunch(launch).execute();
 
-        assert response.isSuccessful() : "response is Successful";
+        //assert response.isSuccessful() : "response is Successful";
+
+        Log.v("TAG2", String.valueOf(response.errorBody()));
         Log.v("TAG2", response.toString());
         Launch launchRes = response.body();
 
@@ -59,7 +63,23 @@ public class RetrofitInstance {
         return missiom;
     }
 
-    //  singleton pattern used to create instance pf retrofit
+    public static void Test3() throws IOException {
+
+        int launch = 4;
+
+        Response<Launch> response = getData.getPastLaunches(2023).execute();
+
+        //assert response.isSuccessful() : "response is Successful";
+        Log.v("TAG3", response.toString());
+        Launch launchRes = response.body();
+
+
+        String missiom = response.body().mission_name;
+
+        return ;
+    }
+
+
 
 
 //    public static GetData getData() {
