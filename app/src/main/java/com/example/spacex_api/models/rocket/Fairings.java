@@ -4,52 +4,32 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("jsonschema2pojo")
-public class Fairings {
+public class Fairings{
+    public boolean reused;
+    public boolean recovery_attempt;
+    public boolean recovered;
+    public String ship;
 
-    @SerializedName("reused")
-    @Expose
-    private Boolean reused;
-    @SerializedName("recovery_attempt")
-    @Expose
-    private Boolean recoveryAttempt;
-    @SerializedName("recovered")
-    @Expose
-    private Boolean recovered;
-    @SerializedName("ship")
-    @Expose
-    private Object ship;
-
-    public Boolean getReused() {
-        return reused;
-    }
-
-    public void setReused(Boolean reused) {
+    public Fairings(boolean reused, boolean recovery_attempt, boolean recovered, String ship) {
         this.reused = reused;
-    }
-
-    public Boolean getRecoveryAttempt() {
-        return recoveryAttempt;
-    }
-
-    public void setRecoveryAttempt(Boolean recoveryAttempt) {
-        this.recoveryAttempt = recoveryAttempt;
-    }
-
-    public Boolean getRecovered() {
-        return recovered;
-    }
-
-    public void setRecovered(Boolean recovered) {
+        this.recovery_attempt = recovery_attempt;
         this.recovered = recovered;
-    }
-
-    public Object getShip() {
-        return ship;
-    }
-
-    public void setShip(Object ship) {
         this.ship = ship;
     }
 
+    public boolean isReused() {
+        return reused;
+    }
+
+    public boolean isRecovery_attempt() {
+        return recovery_attempt;
+    }
+
+    public boolean isRecovered() {
+        return recovered;
+    }
+
+    public String getShip() {
+        return ship;
+    }
 }

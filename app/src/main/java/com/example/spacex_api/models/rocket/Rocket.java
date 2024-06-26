@@ -5,74 +5,44 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("jsonschema2pojo")
-public class Rocket {
+public class Rocket{
+    public String rocket_id;
+    public String rocket_name;
+    public String rocket_type;
+    public FirstStage first_stage;
+    public SecondStage second_stage;
+    public Fairings fairings;
 
-    @SerializedName("rocket_id")
-    @Expose
-    private String rocketId;
-    @SerializedName("rocket_name")
-    @Expose
-    private String rocketName;
-    @SerializedName("rocket_type")
-    @Expose
-    private String rocketType;
-    @SerializedName("first_stage")
-    @Expose
-    private FirstStage firstStage;
-    @SerializedName("second_stage")
-    @Expose
-    private SecondStage secondStage;
-    @SerializedName("fairings")
-    @Expose
-    private Fairings fairings;
-
-    public String getRocketId() {
-        return rocketId;
+    public Rocket(String rocket_id, String rocket_name, String rocket_type, FirstStage first_stage, SecondStage second_stage, Fairings fairings) {
+        this.rocket_id = rocket_id;
+        this.rocket_name = rocket_name;
+        this.rocket_type = rocket_type;
+        this.first_stage = first_stage;
+        this.second_stage = second_stage;
+        this.fairings = fairings;
     }
 
-    public void setRocketId(String rocketId) {
-        this.rocketId = rocketId;
+    public String getRocket_id() {
+        return rocket_id;
     }
 
-    public String getRocketName() {
-        return rocketName;
+    public String getRocket_name() {
+        return rocket_name;
     }
 
-    public void setRocketName(String rocketName) {
-        this.rocketName = rocketName;
+    public String getRocket_type() {
+        return rocket_type;
     }
 
-    public String getRocketType() {
-        return rocketType;
+    public FirstStage getFirst_stage() {
+        return first_stage;
     }
 
-    public void setRocketType(String rocketType) {
-        this.rocketType = rocketType;
-    }
-
-    public FirstStage getFirstStage() {
-        return firstStage;
-    }
-
-    public void setFirstStage(FirstStage firstStage) {
-        this.firstStage = firstStage;
-    }
-
-    public SecondStage getSecondStage() {
-        return secondStage;
-    }
-
-    public void setSecondStage(SecondStage secondStage) {
-        this.secondStage = secondStage;
+    public SecondStage getSecond_stage() {
+        return second_stage;
     }
 
     public Fairings getFairings() {
         return fairings;
     }
-
-    public void setFairings(Fairings fairings) {
-        this.fairings = fairings;
-    }
-
 }

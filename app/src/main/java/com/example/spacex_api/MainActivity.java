@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setname() throws IOException {
 
-        String value = RetrofitInstance.Test2();
+        String value = RetrofitInstance.Test3();
 
         runOnUiThread(new Runnable() {
             @Override

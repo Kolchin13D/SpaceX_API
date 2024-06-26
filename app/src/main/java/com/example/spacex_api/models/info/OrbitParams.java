@@ -5,173 +5,100 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("jsonschema2pojo")
-public class OrbitParams {
+import java.util.Date;
 
-    @SerializedName("reference_system")
-    @Expose
-    private String referenceSystem;
-    @SerializedName("regime")
-    @Expose
-    private String regime;
-    @SerializedName("longitude")
-    @Expose
-    private Object longitude;
-    @SerializedName("semi_major_axis_km")
-    @Expose
-    private Object semiMajorAxisKm;
-    @SerializedName("eccentricity")
-    @Expose
-    private Object eccentricity;
-    @SerializedName("periapsis_km")
-    @Expose
-    private Integer periapsisKm;
-    @SerializedName("apoapsis_km")
-    @Expose
-    private Integer apoapsisKm;
-    @SerializedName("inclination_deg")
-    @Expose
-    private Integer inclinationDeg;
-    @SerializedName("period_min")
-    @Expose
-    private Object periodMin;
-    @SerializedName("lifespan_years")
-    @Expose
-    private Object lifespanYears;
-    @SerializedName("epoch")
-    @Expose
-    private Object epoch;
-    @SerializedName("mean_motion")
-    @Expose
-    private Object meanMotion;
-    @SerializedName("raan")
-    @Expose
-    private Object raan;
-    @SerializedName("arg_of_pericenter")
-    @Expose
-    private Object argOfPericenter;
-    @SerializedName("mean_anomaly")
-    @Expose
-    private Object meanAnomaly;
+public class OrbitParams{
+    public String reference_system;
+    public String regime;
+    public Object longitude;
+    public double semi_major_axis_km;
+    public double eccentricity;
+    public double periapsis_km;
+    public double apoapsis_km;
+    public double inclination_deg;
+    public double period_min;
+    public Object lifespan_years;
+    public Date epoch;
+    public double mean_motion;
+    public double raan;
+    public double arg_of_pericenter;
+    public double mean_anomaly;
 
-    public String getReferenceSystem() {
-        return referenceSystem;
+    public OrbitParams(String reference_system, String regime, Object longitude, double semi_major_axis_km, double eccentricity, double periapsis_km, double apoapsis_km, double inclination_deg, double period_min, Object lifespan_years, Date epoch, double mean_motion, double raan, double arg_of_pericenter, double mean_anomaly) {
+        this.reference_system = reference_system;
+        this.regime = regime;
+        this.longitude = longitude;
+        this.semi_major_axis_km = semi_major_axis_km;
+        this.eccentricity = eccentricity;
+        this.periapsis_km = periapsis_km;
+        this.apoapsis_km = apoapsis_km;
+        this.inclination_deg = inclination_deg;
+        this.period_min = period_min;
+        this.lifespan_years = lifespan_years;
+        this.epoch = epoch;
+        this.mean_motion = mean_motion;
+        this.raan = raan;
+        this.arg_of_pericenter = arg_of_pericenter;
+        this.mean_anomaly = mean_anomaly;
     }
 
-    public void setReferenceSystem(String referenceSystem) {
-        this.referenceSystem = referenceSystem;
+    public String getReference_system() {
+        return reference_system;
     }
 
     public String getRegime() {
         return regime;
     }
 
-    public void setRegime(String regime) {
-        this.regime = regime;
-    }
-
     public Object getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Object longitude) {
-        this.longitude = longitude;
+    public double getSemi_major_axis_km() {
+        return semi_major_axis_km;
     }
 
-    public Object getSemiMajorAxisKm() {
-        return semiMajorAxisKm;
-    }
-
-    public void setSemiMajorAxisKm(Object semiMajorAxisKm) {
-        this.semiMajorAxisKm = semiMajorAxisKm;
-    }
-
-    public Object getEccentricity() {
+    public double getEccentricity() {
         return eccentricity;
     }
 
-    public void setEccentricity(Object eccentricity) {
-        this.eccentricity = eccentricity;
+    public double getPeriapsis_km() {
+        return periapsis_km;
     }
 
-    public Integer getPeriapsisKm() {
-        return periapsisKm;
+    public double getApoapsis_km() {
+        return apoapsis_km;
     }
 
-    public void setPeriapsisKm(Integer periapsisKm) {
-        this.periapsisKm = periapsisKm;
+    public double getInclination_deg() {
+        return inclination_deg;
     }
 
-    public Integer getApoapsisKm() {
-        return apoapsisKm;
+    public double getPeriod_min() {
+        return period_min;
     }
 
-    public void setApoapsisKm(Integer apoapsisKm) {
-        this.apoapsisKm = apoapsisKm;
+    public Object getLifespan_years() {
+        return lifespan_years;
     }
 
-    public Integer getInclinationDeg() {
-        return inclinationDeg;
-    }
-
-    public void setInclinationDeg(Integer inclinationDeg) {
-        this.inclinationDeg = inclinationDeg;
-    }
-
-    public Object getPeriodMin() {
-        return periodMin;
-    }
-
-    public void setPeriodMin(Object periodMin) {
-        this.periodMin = periodMin;
-    }
-
-    public Object getLifespanYears() {
-        return lifespanYears;
-    }
-
-    public void setLifespanYears(Object lifespanYears) {
-        this.lifespanYears = lifespanYears;
-    }
-
-    public Object getEpoch() {
+    public Date getEpoch() {
         return epoch;
     }
 
-    public void setEpoch(Object epoch) {
-        this.epoch = epoch;
+    public double getMean_motion() {
+        return mean_motion;
     }
 
-    public Object getMeanMotion() {
-        return meanMotion;
-    }
-
-    public void setMeanMotion(Object meanMotion) {
-        this.meanMotion = meanMotion;
-    }
-
-    public Object getRaan() {
+    public double getRaan() {
         return raan;
     }
 
-    public void setRaan(Object raan) {
-        this.raan = raan;
+    public double getArg_of_pericenter() {
+        return arg_of_pericenter;
     }
 
-    public Object getArgOfPericenter() {
-        return argOfPericenter;
+    public double getMean_anomaly() {
+        return mean_anomaly;
     }
-
-    public void setArgOfPericenter(Object argOfPericenter) {
-        this.argOfPericenter = argOfPericenter;
-    }
-
-    public Object getMeanAnomaly() {
-        return meanAnomaly;
-    }
-
-    public void setMeanAnomaly(Object meanAnomaly) {
-        this.meanAnomaly = meanAnomaly;
-    }
-
 }

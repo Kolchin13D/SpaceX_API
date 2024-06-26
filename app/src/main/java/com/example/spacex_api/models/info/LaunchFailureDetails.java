@@ -4,41 +4,26 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("jsonschema2pojo")
-public class LaunchFailureDetails {
+public class LaunchFailureDetails{
+    public int time;
+    public int altitude;
+    public String reason;
 
-    @SerializedName("time")
-    @Expose
-    private Integer time;
-    @SerializedName("altitude")
-    @Expose
-    private Object altitude;
-    @SerializedName("reason")
-    @Expose
-    private String reason;
+    public LaunchFailureDetails(int time, int altitude, String reason) {
+        this.time = time;
+        this.altitude = altitude;
+        this.reason = reason;
+    }
 
-    public Integer getTime() {
+    public int getTime() {
         return time;
     }
 
-    public void setTime(Integer time) {
-        this.time = time;
-    }
-
-    public Object getAltitude() {
+    public int getAltitude() {
         return altitude;
-    }
-
-    public void setAltitude(Object altitude) {
-        this.altitude = altitude;
     }
 
     public String getReason() {
         return reason;
     }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
 }

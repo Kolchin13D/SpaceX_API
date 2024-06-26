@@ -1,5 +1,6 @@
 package com.example.spacex_api.models.rocket;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
 
@@ -7,129 +8,104 @@ import com.example.spacex_api.models.info.OrbitParams;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("jsonschema2pojo")
-public class Payload {
+public class Payload{
+    public String payload_id;
+    public ArrayList<Integer> norad_id;
+    public boolean reused;
+    public ArrayList<String> customers;
+    public String nationality;
+    public String manufacturer;
+    public String payload_type;
+    public double payload_mass_kg;
+    public double payload_mass_lbs;
+    public String orbit;
+    public OrbitParams orbit_params;
+    public String cap_serial;
+    public double mass_returned_kg;
+    public double mass_returned_lbs;
+    public int flight_time_sec;
+    public String cargo_manifest;
 
-    @SerializedName("payload_id")
-    @Expose
-    private String payloadId;
-    @SerializedName("norad_id")
-    @Expose
-    private List<Object> noradId;
-    @SerializedName("reused")
-    @Expose
-    private Boolean reused;
-    @SerializedName("customers")
-    @Expose
-    private List<String> customers;
-    @SerializedName("nationality")
-    @Expose
-    private String nationality;
-    @SerializedName("manufacturer")
-    @Expose
-    private String manufacturer;
-    @SerializedName("payload_type")
-    @Expose
-    private String payloadType;
-    @SerializedName("payload_mass_kg")
-    @Expose
-    private Integer payloadMassKg;
-    @SerializedName("payload_mass_lbs")
-    @Expose
-    private Integer payloadMassLbs;
-    @SerializedName("orbit")
-    @Expose
-    private String orbit;
-    @SerializedName("orbit_params")
-    @Expose
-    private OrbitParams orbitParams;
-
-    public String getPayloadId() {
-        return payloadId;
+    public Payload(String payload_id, ArrayList<Integer> norad_id, boolean reused, ArrayList<String> customers, String nationality, String manufacturer, String payload_type, double payload_mass_kg, double payload_mass_lbs, String orbit, OrbitParams orbit_params, String cap_serial, double mass_returned_kg, double mass_returned_lbs, int flight_time_sec, String cargo_manifest) {
+        this.payload_id = payload_id;
+        this.norad_id = norad_id;
+        this.reused = reused;
+        this.customers = customers;
+        this.nationality = nationality;
+        this.manufacturer = manufacturer;
+        this.payload_type = payload_type;
+        this.payload_mass_kg = payload_mass_kg;
+        this.payload_mass_lbs = payload_mass_lbs;
+        this.orbit = orbit;
+        this.orbit_params = orbit_params;
+        this.cap_serial = cap_serial;
+        this.mass_returned_kg = mass_returned_kg;
+        this.mass_returned_lbs = mass_returned_lbs;
+        this.flight_time_sec = flight_time_sec;
+        this.cargo_manifest = cargo_manifest;
     }
 
-    public void setPayloadId(String payloadId) {
-        this.payloadId = payloadId;
+    public String getPayload_id() {
+        return payload_id;
     }
 
-    public List<Object> getNoradId() {
-        return noradId;
+    public ArrayList<Integer> getNorad_id() {
+        return norad_id;
     }
 
-    public void setNoradId(List<Object> noradId) {
-        this.noradId = noradId;
-    }
-
-    public Boolean getReused() {
+    public boolean isReused() {
         return reused;
     }
 
-    public void setReused(Boolean reused) {
-        this.reused = reused;
-    }
-
-    public List<String> getCustomers() {
+    public ArrayList<String> getCustomers() {
         return customers;
-    }
-
-    public void setCustomers(List<String> customers) {
-        this.customers = customers;
     }
 
     public String getNationality() {
         return nationality;
     }
 
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
-    }
-
     public String getManufacturer() {
         return manufacturer;
     }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
+    public String getPayload_type() {
+        return payload_type;
     }
 
-    public String getPayloadType() {
-        return payloadType;
+    public double getPayload_mass_kg() {
+        return payload_mass_kg;
     }
 
-    public void setPayloadType(String payloadType) {
-        this.payloadType = payloadType;
-    }
-
-    public Integer getPayloadMassKg() {
-        return payloadMassKg;
-    }
-
-    public void setPayloadMassKg(Integer payloadMassKg) {
-        this.payloadMassKg = payloadMassKg;
-    }
-
-    public Integer getPayloadMassLbs() {
-        return payloadMassLbs;
-    }
-
-    public void setPayloadMassLbs(Integer payloadMassLbs) {
-        this.payloadMassLbs = payloadMassLbs;
+    public double getPayload_mass_lbs() {
+        return payload_mass_lbs;
     }
 
     public String getOrbit() {
         return orbit;
     }
 
-    public void setOrbit(String orbit) {
-        this.orbit = orbit;
+    public OrbitParams getOrbit_params() {
+        return orbit_params;
     }
 
-    public OrbitParams getOrbitParams() {
-        return orbitParams;
+    public String getCap_serial() {
+        return cap_serial;
     }
 
-    public void setOrbitParams(OrbitParams orbitParams) {
-        this.orbitParams = orbitParams;
+    public double getMass_returned_kg() {
+        return mass_returned_kg;
     }
 
+    public double getMass_returned_lbs() {
+        return mass_returned_lbs;
+    }
+
+    public int getFlight_time_sec() {
+        return flight_time_sec;
+    }
+
+    public String getCargo_manifest() {
+        return cargo_manifest;
+    }
 }

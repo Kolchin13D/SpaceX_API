@@ -12,7 +12,7 @@ public interface GetData {
 
     @GET("launches/past")
     Call<Launch> getPastLaunches(
-            @Query("launch_year") int launch_year
+            @Query("launch_year") Integer launch_year
 
     );
 

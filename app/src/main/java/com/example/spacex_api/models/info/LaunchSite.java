@@ -4,41 +4,26 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("jsonschema2pojo")
-public class LaunchSite {
+public class LaunchSite{
+    public String site_id;
+    public String site_name;
+    public String site_name_long;
 
-    @SerializedName("site_id")
-    @Expose
-    private String siteId;
-    @SerializedName("site_name")
-    @Expose
-    private String siteName;
-    @SerializedName("site_name_long")
-    @Expose
-    private String siteNameLong;
-
-    public String getSiteId() {
-        return siteId;
+    public LaunchSite(String site_id, String site_name, String site_name_long) {
+        this.site_id = site_id;
+        this.site_name = site_name;
+        this.site_name_long = site_name_long;
     }
 
-    public void setSiteId(String siteId) {
-        this.siteId = siteId;
+    public String getSite_id() {
+        return site_id;
     }
 
-    public String getSiteName() {
-        return siteName;
+    public String getSite_name() {
+        return site_name;
     }
 
-    public void setSiteName(String siteName) {
-        this.siteName = siteName;
+    public String getSite_name_long() {
+        return site_name_long;
     }
-
-    public String getSiteNameLong() {
-        return siteNameLong;
-    }
-
-    public void setSiteNameLong(String siteNameLong) {
-        this.siteNameLong = siteNameLong;
-    }
-
 }

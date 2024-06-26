@@ -4,118 +4,68 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("jsonschema2pojo")
-public class Core {
+public class Core{
+    public String core_serial;
+    public int flight;
+    public int block;
+    public boolean gridfins;
+    public boolean legs;
+    public boolean reused;
+    public boolean land_success;
+    public boolean landing_intent;
+    public String landing_type;
+    public String landing_vehicle;
 
-    @SerializedName("core_serial")
-    @Expose
-    private String coreSerial;
-    @SerializedName("flight")
-    @Expose
-    private Integer flight;
-    @SerializedName("block")
-    @Expose
-    private Object block;
-    @SerializedName("gridfins")
-    @Expose
-    private Boolean gridfins;
-    @SerializedName("legs")
-    @Expose
-    private Boolean legs;
-    @SerializedName("reused")
-    @Expose
-    private Boolean reused;
-    @SerializedName("land_success")
-    @Expose
-    private Object landSuccess;
-    @SerializedName("landing_intent")
-    @Expose
-    private Boolean landingIntent;
-    @SerializedName("landing_type")
-    @Expose
-    private Object landingType;
-    @SerializedName("landing_vehicle")
-    @Expose
-    private Object landingVehicle;
-
-    public String getCoreSerial() {
-        return coreSerial;
+    public String getCore_serial() {
+        return core_serial;
     }
 
-    public void setCoreSerial(String coreSerial) {
-        this.coreSerial = coreSerial;
-    }
-
-    public Integer getFlight() {
+    public int getFlight() {
         return flight;
     }
 
-    public void setFlight(Integer flight) {
-        this.flight = flight;
-    }
-
-    public Object getBlock() {
+    public int getBlock() {
         return block;
     }
 
-    public void setBlock(Object block) {
-        this.block = block;
-    }
-
-    public Boolean getGridfins() {
+    public boolean isGridfins() {
         return gridfins;
     }
 
-    public void setGridfins(Boolean gridfins) {
-        this.gridfins = gridfins;
-    }
-
-    public Boolean getLegs() {
+    public boolean isLegs() {
         return legs;
     }
 
-    public void setLegs(Boolean legs) {
-        this.legs = legs;
-    }
-
-    public Boolean getReused() {
+    public boolean isReused() {
         return reused;
     }
 
-    public void setReused(Boolean reused) {
+    public boolean isLand_success() {
+        return land_success;
+    }
+
+    public boolean isLanding_intent() {
+        return landing_intent;
+    }
+
+    public String getLanding_type() {
+        return landing_type;
+    }
+
+    public String getLanding_vehicle() {
+        return landing_vehicle;
+    }
+
+    public Core(String core_serial, int flight, int block, boolean gridfins, boolean legs, boolean reused, boolean land_success, boolean landing_intent, String landing_type, String landing_vehicle) {
+        this.core_serial = core_serial;
+        this.flight = flight;
+        this.block = block;
+        this.gridfins = gridfins;
+        this.legs = legs;
         this.reused = reused;
+        this.land_success = land_success;
+        this.landing_intent = landing_intent;
+        this.landing_type = landing_type;
+        this.landing_vehicle = landing_vehicle;
     }
-
-    public Object getLandSuccess() {
-        return landSuccess;
-    }
-
-    public void setLandSuccess(Object landSuccess) {
-        this.landSuccess = landSuccess;
-    }
-
-    public Boolean getLandingIntent() {
-        return landingIntent;
-    }
-
-    public void setLandingIntent(Boolean landingIntent) {
-        this.landingIntent = landingIntent;
-    }
-
-    public Object getLandingType() {
-        return landingType;
-    }
-
-    public void setLandingType(Object landingType) {
-        this.landingType = landingType;
-    }
-
-    public Object getLandingVehicle() {
-        return landingVehicle;
-    }
-
-    public void setLandingVehicle(Object landingVehicle) {
-        this.landingVehicle = landingVehicle;
-    }
-
 }

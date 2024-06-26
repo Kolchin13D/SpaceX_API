@@ -1,24 +1,20 @@
 package com.example.spacex_api.models.rocket;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("jsonschema2pojo")
-public class FirstStage {
+public class FirstStage{
+    public ArrayList<Core> cores;
 
-    @SerializedName("cores")
-    @Expose
-    private List<Core> cores;
-
-    public List<Core> getCores() {
-        return cores;
-    }
-
-    public void setCores(List<Core> cores) {
+    public FirstStage(ArrayList<Core> cores) {
         this.cores = cores;
     }
 
+    public ArrayList<Core> getCores() {
+        return cores;
+    }
 }

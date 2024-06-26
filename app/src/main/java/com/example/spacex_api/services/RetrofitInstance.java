@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -47,7 +49,7 @@ public class RetrofitInstance {
 
     public static String Test2() throws IOException {
 
-        int launch = 5;
+        int launch = 195;
 
         Response<Launch> response = getData.getLaunch(launch).execute();
 
@@ -63,20 +65,31 @@ public class RetrofitInstance {
         return missiom;
     }
 
-    public static void Test3() throws IOException {
+    public static String Test3() throws IOException {
 
-        int launch = 4;
+        Integer launch = 67;
 
-        Response<Launch> response = getData.getPastLaunches(2023).execute();
+        Call<Launch> responseCall = getData.getLaunch(launch);
+        Response<Launch> response = getData.getLaunch(launch).execute();
+        responseCall.enqueue(new Callback<Launch>() {
+            @Override
+            public void onResponse(Call<Launch> call, Response<Launch> response) {
+                Log.v("TAG3", "the response " + response.isSuccessful());
+            }
 
-        //assert response.isSuccessful() : "response is Successful";
-        Log.v("TAG3", response.toString());
-        Launch launchRes = response.body();
+            @Override
+            public void onFailure(Call<Launch> call, Throwable throwable) {
+                Log.v("ERR3", "CRITICAL ERROR");
+                Log.v("ERR3", throwable.toString());
+            }
+        });
 
+
+        Log.v("TAG3", responseCall.toString());
 
         String missiom = response.body().mission_name;
 
-        return ;
+        return missiom;
     }
 
 
