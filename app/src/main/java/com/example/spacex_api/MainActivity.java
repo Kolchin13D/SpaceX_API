@@ -44,10 +44,9 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        Button button = findViewById(R.id.button);
         textView333 = findViewById(R.id.text333);
 
-        Thread gfgThread = new Thread(new Runnable() {
+        Thread MainThead = new Thread(new Runnable() {
             @Override
             public void run() {
                 try  {
@@ -57,13 +56,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-        gfgThread.start();
+        MainThead.start();
     }
 
     private void setname() throws IOException {
 
-        String value = RetrofitInstance.Test3();
+        launches = RetrofitInstance.Test4();
+
+        //String value = RetrofitInstance.Test3();
+
+        String value = launches.get(1).mission_name;
+
+        //RetrofitInstance.Test4().get(0).mission_name;
 
         runOnUiThread(new Runnable() {
             @Override
