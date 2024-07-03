@@ -6,6 +6,10 @@ android {
     namespace = "com.example.spacex_api"
     compileSdk = 34
 
+    buildFeatures {
+        dataBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.example.spacex_api"
         minSdk = 24

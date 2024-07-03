@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.spacex_api.R;
-import com.example.spacex_api.models.Launch;
+import com.example.spacex_api.models.main.Launch;
 
 import java.util.ArrayList;
 
@@ -28,8 +28,8 @@ public class LaunchAdapter extends RecyclerView.Adapter<LaunchAdapter.LaunchView
 
     @Override
     public void onBindViewHolder(@NonNull LaunchViewHolder holder, int position) {
-        //holder.YEAR.setText(launches.get(position).getLaunch_year());
-        //holder.NUMBER.setText(launches.get(position).getFlight_number());
+        holder.flight_number.setText(launches.get(position).getFlight_number());
+        holder.mission_name.setText(launches.get(position).getMission_name());
     }
 
     @Override
@@ -39,14 +39,14 @@ public class LaunchAdapter extends RecyclerView.Adapter<LaunchAdapter.LaunchView
 
     class LaunchViewHolder extends RecyclerView.ViewHolder{
 
-        TextView YEAR;
-        TextView NUMBER;
+        TextView flight_number;
+        TextView mission_name;
 
         public LaunchViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            YEAR = itemView.findViewById(R.id.Year);
-            NUMBER = itemView.findViewById(R.id.Launch);
+            flight_number = itemView.findViewById(R.id.flight_number);
+            mission_name = itemView.findViewById(R.id.mission_name);
         }
     }
 

@@ -1,6 +1,6 @@
 package com.example.spacex_api.services;
 
-import com.example.spacex_api.models.Launch;
+import com.example.spacex_api.models.main.Launch;
 import com.example.spacex_api.models.Test.ListUsersResponse;
 
 import java.util.List;
@@ -13,12 +13,7 @@ import retrofit2.http.Query;
 public interface GetData {
 
     @GET("launches/past")
-    Call<Launch> getPastLaunches(
-            @Query("launch_year") Integer launch_year
-    );
-
-    @GET("launches/past")
-    Call<List<Launch>> getPastLaunches2(
+    Call<List<Launch>> getPastLaunches(
             @Query("launch_year") Integer launch_year
 
     );
