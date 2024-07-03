@@ -20,26 +20,32 @@ public class RetrofitInstance {
 
     private static ArrayList<Launch> launches = new ArrayList<>();
 
-    private static Retrofit retrofit = null;
+    //private static Retrofit retrofit = null;
     private static String BASE_URL2 = "https://api.spacexdata.com/v3/";
     private static String BASE_URL = "https://reqres.in/";
 
-//    private static final Retrofit retrofit = new Retrofit.Builder()
-//            .baseUrl(BASE_URL2)
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .build();
-//    private static final GetData getData = retrofit.create(GetData.class);
+    private static final Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(BASE_URL2)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+    private static final GetData getData = retrofit.create(GetData.class);
 
-    public static GetData getService() {
-
-        retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL2)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        Log.v("TAG2", retrofit.create(GetData.class).toString());
-        return retrofit.create(GetData.class);
+    public static GetData getService(){
+        return getData;
     }
+
+    //тесты для проверки отверки получения ответа. Функционал возврата запусков перенесен в LaunchRepository
+
+//    public static GetData getService() {
+//
+//        retrofit = new Retrofit.Builder()
+//                .baseUrl(BASE_URL2)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//
+//        Log.v("TAG2", retrofit.create(GetData.class).toString());
+//        return retrofit.create(GetData.class);
+//    }
 
 //    public static String Test() throws IOException {
 //
@@ -97,6 +103,7 @@ public class RetrofitInstance {
 //        return missiom;
 //    }
 //
+
 //    public static ArrayList<Launch> Test4() throws IOException {
 //
 //        Response<List<Launch>> response = getData.getPastLaunches(2020).execute();

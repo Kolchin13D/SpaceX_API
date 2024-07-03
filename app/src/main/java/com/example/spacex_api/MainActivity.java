@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.spacex_api.adapters.LaunchAdapter;
 import com.example.spacex_api.models.main.Launch;
 import com.example.spacex_api.models.Test.UserResponse;
+import com.example.spacex_api.models.main.LaunchRepository;
 import com.example.spacex_api.services.RetrofitInstance;
 
 import java.io.IOException;
@@ -65,19 +66,15 @@ public class MainActivity extends AppCompatActivity {
     private void setname() throws IOException {
 
         //launches = RetrofitInstance.Test4();
+        launches = LaunchRepository.Test4();
+        String value = launches.get(1).mission_name;
 
-        //String value = RetrofitInstance.Test3();
-
-        //String value = launches.get(1).mission_name;
-
-        //RetrofitInstance.Test4().get(0).mission_name;
-
-//        runOnUiThread(new Runnable() {
-//            @Override
-//            public void run() {
-//                textView333.setText(value);
-//            }
-//        });
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                textView333.setText(value);
+            }
+        });
 
         //launches = RetrofitInstance.Test4();
 

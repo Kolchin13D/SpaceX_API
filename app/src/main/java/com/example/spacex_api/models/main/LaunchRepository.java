@@ -18,7 +18,7 @@ import retrofit2.Response;
 
 public class LaunchRepository {
 
-    private ArrayList<Launch> launches = new ArrayList<>();
+    private static ArrayList<Launch> launches = new ArrayList<>();
     private MutableLiveData<List<Launch>> mutableLiveData = new MutableLiveData<>();
     private Application application;
 
@@ -27,6 +27,7 @@ public class LaunchRepository {
     public LaunchRepository(Application application) {
         this.application = application;
     }
+
 
     public static ArrayList<Launch> Test4() throws IOException {
 
