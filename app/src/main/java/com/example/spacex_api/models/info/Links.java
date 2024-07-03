@@ -1,12 +1,14 @@
 package com.example.spacex_api.models.info;
 
+import androidx.databinding.BaseObservable;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Links{
+public class Links {
     public String mission_patch;
     public String mission_patch_small;
     public String reddit_campaign;
