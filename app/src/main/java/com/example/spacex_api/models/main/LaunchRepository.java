@@ -20,10 +20,10 @@ public class LaunchRepository {
 
     private static ArrayList<Launch> launches = new ArrayList<>();
     private MutableLiveData<List<Launch>> mutableLiveData = new MutableLiveData<>();
-    private Application application;
 
     private static final GetData getData = RetrofitInstance.getService();
 
+    private Application application;
     public LaunchRepository(Application application) {
         this.application = application;
     }
@@ -70,5 +70,28 @@ public class LaunchRepository {
         Log.v("CALL4", responseCall.toString());
 
         return launches;
+    }
+
+    public MutableLiveData<List<Launch>> getMutableLiveData(){
+        GetData getData1 = RetrofitInstance.getService();
+
+        Call<List<Launch>> call = getData1.getPastLaunches(2023);
+
+        call.enqueue(new Callback<List<Launch>>() {
+            @Override
+            public void onResponse(Call<List<Launch>> call, Response<List<Launch>> response) {
+
+                launches = new ArrayList<>(response.body());
+                mutableLiveData.setValue(launches);
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Launch>> call, Throwable t) {
+
+            }
+        });
+
+        return mutableLiveData;
     }
 }
