@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "NULL LAUNCHES", Toast.LENGTH_SHORT).show();
                 }
 
-                Log.v("CALL6", "size = " + launches.size());
+                Log.v("CALL7", "size = " + launches.size());
 
             }
         });

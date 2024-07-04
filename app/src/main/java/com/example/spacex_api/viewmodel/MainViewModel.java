@@ -26,7 +26,7 @@ public class MainViewModel extends ViewModel {
     // Live data
     public LiveData<List<Launch>> getLaunches(){
 
-        Log.v("CALL7", "size = " + launchRepository.getLaunches().getValue());
+        Log.v("CALL6", "size = " + launchRepository.getLaunches().getValue());
 
 
         return launchRepository.getLaunches();

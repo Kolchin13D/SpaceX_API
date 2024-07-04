@@ -120,7 +120,6 @@ public class LaunchRepository {
             }
         });
 
-        mutableLiveData.setValue(launches);
 
         Log.v("CALL5", "mutableLiveData =  " + mutableLiveData.getValue());
         Log.v("CALL5", "launches size = " + launches.size());
