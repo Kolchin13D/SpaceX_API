@@ -2,6 +2,7 @@ package com.example.spacex_api;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,14 +57,30 @@ public class MainActivity extends AppCompatActivity {
 
         mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
-        getLaunches();
+        mainViewModel.getLaunches().observe(this, new Observer<List<Launch>>() {
+            @Override
+            public void onChanged(List<Launch> liveLaunches) {
+                launches = (ArrayList<Launch>) liveLaunches;
+                ShowOnRecyclerView();
+
+                if (launches.size() == 0){
+                    Toast.makeText(MainActivity.this, "NULL LAUNCHES", Toast.LENGTH_SHORT).show();
+                }
+
+                Log.v("CALL6", "size = " + launches.size());
+
+            }
+        });
+
+        //getLaunches();
+
+        ShowOnRecyclerView();
 
 //        Thread Thead1 = new Thread(new Runnable() {
 //            @Override
 //            public void run() {
 //                try  {
-//                    getLaunches2();
-//                    ShowOnRecyclerView();
+//                    getLaunches();
 //
 //                } catch (Exception e) {
 //                    e.printStackTrace();
@@ -82,68 +99,28 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-//        recyclerView = activityMainBinding.rvLaunch;
-//        launchAdapter = new LaunchAdapter(this, launches);
-//
-//        if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-//            recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-//        } else {
-//            recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
-//        }
-//
-//        recyclerView.setItemAnimator(new DefaultItemAnimator());
 
 
-
-
-//        recyclerView.setAdapter(launchAdapter);
-//        launchAdapter.notifyDataSetChanged();
-
-//        Thread Thead1 = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try  {
-//                    setname();
-//
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//        Thead1.start();
 
 
     }
 
     private void getLaunches() {
-        mainViewModel.getLaunches().observe(this, new Observer<List<Launch>>() {
-            @Override
-            public void onChanged(List<Launch> launchesFromLiveData) {
-                launches = (ArrayList<Launch>) launchesFromLiveData;
-
-                if (launches.size() == 0){
-                    Toast.makeText(MainActivity.this, "NULL LAUNCHES", Toast.LENGTH_SHORT).show();
-                }
-
-
-
-            }
-        });
+//        mainViewModel.getLaunches().observe(this, new Observer<List<Launch>>() {
+//            @Override
+//            public void onChanged(List<Launch> liveLaunches) {
+//                launches = (ArrayList<Launch>) liveLaunches;
+                ShowOnRecyclerView();
+//
+//                if (launches.size() == 0){
+//                    Toast.makeText(MainActivity.this, "NULL LAUNCHES", Toast.LENGTH_SHORT).show();
+//                }
+//
+//                Log.v("CALL6", "size = " + launches.size());
+//
+//            }
+//        });
     }
-
-    private void getLaunches2() {
-        launches = (ArrayList<Launch>) mainViewModel.getLaunches2();
-
-        if (launches.size() == 0) {
-            Toast.makeText(MainActivity.this, "NULL LAUNCHES", Toast.LENGTH_SHORT).show();
-        }
-
-        //mainViewModel.getLaunches2().get(0);
-
-
-
-    }
-
 
     private void ShowOnRecyclerView() {
 
@@ -159,18 +136,13 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(launchAdapter);
         launchAdapter.notifyDataSetChanged();
-
-        recyclerView.setAdapter(launchAdapter);
-        launchAdapter.notifyDataSetChanged();
-
-
     }
 
     private void setname() throws IOException {
 
 
         //launches = RetrofitInstance.Test4();
-        launches = LaunchRepository.Test4();
+
         String value = launches.get(1).mission_name;
 
         runOnUiThread(new Runnable() {
