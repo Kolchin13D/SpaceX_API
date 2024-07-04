@@ -84,7 +84,7 @@ public class LaunchRepository {
 
     public MutableLiveData<List<Launch>> getLaunches() {
 
-        Call<List<Launch>> call = getData.getPastLaunches(2008);
+        Call<List<Launch>> call = getData.getPastLaunches(2019);
 
         call.enqueue(new Callback<List<Launch>>() {
             @Override
@@ -99,12 +99,11 @@ public class LaunchRepository {
                     Log.v("CALL5", "The launch # " + launch.flight_number + " - " + launch.mission_name);
                 }
 
-
                 //Log.v("CALL5", "launches2 size = " + launches.size());
                 Log.v("CALL5", "mutableLiveData =  " + mutableLiveData.getValue());
                 Log.v("CALL5", "launches size = " + launches.size());
 
-                mutableLiveData.postValue(launches);
+                mutableLiveData.setValue(launches);
 
             }
 
@@ -115,12 +114,6 @@ public class LaunchRepository {
         });
 
         launches2 = launches;
-
-//        if (launches.size() != 0){
-//            Log.v("CALL5", "launches2 size = " + launches.size());
-//            Log.v("CALL5", "mutableLiveData =  " + mutableLiveData.getValue());
-//            Log.v("CALL5", "launches size = " + launches.size());
-//        }
 
         return mutableLiveData;
     }

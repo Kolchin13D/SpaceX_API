@@ -38,7 +38,7 @@
                         android:padding="16dp"
                         android:layout_marginTop="3dp"
                         android:textSize="20sp"
-                        android:text="@{secondaryLaunch.flight_number}"
+                        android:text="@{String.valueOf(secondaryLaunch.flight_number)}"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         android:layout_marginStart="16dp"
