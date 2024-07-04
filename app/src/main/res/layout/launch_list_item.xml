@@ -29,7 +29,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-
+ <!--               <ImageView
+                    android:id="@+id/ivLaunch"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:scaleType="fitXY"
+                    bind:mission_patch="@{launch.links.mission_patch}" />
+-->
 
                 <TextView
                     android:id="@+id/flight_number"

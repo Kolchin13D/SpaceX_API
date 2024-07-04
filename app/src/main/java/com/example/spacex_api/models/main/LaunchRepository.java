@@ -28,13 +28,10 @@ public class LaunchRepository {
         this.application = application;
     }
 
-
     public static ArrayList<Launch> Test4() throws IOException {
 
-        Response<List<Launch>> response = getData.getPastLaunches(2020).execute();
-
+        Response<List<Launch>> response = getData.getPastLaunches(2008).execute();
         Call<List<Launch>> responseCall = getData.getPastLaunches(2008);
-
         launches = new ArrayList<>(response.body());
 
         Log.v("TAG4", "___________________________________________________");
@@ -72,25 +69,32 @@ public class LaunchRepository {
         return launches;
     }
 
-    public MutableLiveData<List<Launch>> getMutableLiveData(){
-        GetData getData1 = RetrofitInstance.getService();
+    public MutableLiveData<List<Launch>> getMutableLiveData() {
 
-        Call<List<Launch>> call = getData1.getPastLaunches(2023);
+
+
+        Call<List<Launch>> call = getData.getPastLaunches(2023);
+
+        Log.v("CALL5", call.toString());
 
         call.enqueue(new Callback<List<Launch>>() {
             @Override
             public void onResponse(Call<List<Launch>> call, Response<List<Launch>> response) {
 
+                Log.v("CALL5", response.toString());
                 launches = new ArrayList<>(response.body());
+
                 mutableLiveData.setValue(launches);
 
             }
 
             @Override
             public void onFailure(Call<List<Launch>> call, Throwable t) {
-
+                Log.v("CALL5", t.toString());
             }
         });
+
+        //Log.v("CALL5", mutableLiveData.getValue().get(0).mission_name);
 
         return mutableLiveData;
     }

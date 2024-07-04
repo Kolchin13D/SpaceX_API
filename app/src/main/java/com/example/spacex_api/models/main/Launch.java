@@ -2,11 +2,14 @@ package com.example.spacex_api.models.main;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
+import androidx.databinding.BindingAdapter;
 
+import com.bumptech.glide.Glide;
 import com.example.spacex_api.models.info.LaunchFailureDetails;
 import com.example.spacex_api.models.info.LaunchSite;
 import com.example.spacex_api.models.info.Links;
@@ -22,6 +25,10 @@ import java.util.List;
 
 
 public class Launch extends BaseObservable implements Parcelable {
+
+    @SerializedName("results")
+    @Expose
+    private List<Launch> results = null;
 
     @SerializedName("flight_number")
     @Expose
@@ -134,6 +141,22 @@ public class Launch extends BaseObservable implements Parcelable {
         launch_success = in.readByte() != 0;
         details = in.readString();
         static_fire_date_unix = in.readInt();
+    }
+
+    @BindingAdapter("mission_patch")
+    public static void loadImage(ImageView imageView, String imageURL){
+
+        String imagePath = "https://images2.imgbox.com"+imageURL;
+
+        Glide.with(imageView.getContext())
+                .load(imagePath)
+                .into(imageView);
+
+
+    }
+
+    public List<Launch> getResults() {
+        return results;
     }
 
     @Bindable
