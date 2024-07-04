@@ -21,24 +21,24 @@ import retrofit2.Response;
 
 public class LaunchRepository {
 
-    private static  LaunchRepository intance;
+    private static LaunchRepository intance;
 
     private ArrayList<Launch> launches = new ArrayList<>();
+
+    private ArrayList<Launch> launches2 = new ArrayList<>();
     private MutableLiveData<List<Launch>> mutableLiveData = new MutableLiveData<>();
 
     private static final GetData getData = RetrofitInstance.getService();
 
-    public  static LaunchRepository getInstance(){
-        if(intance == null){
+    public static LaunchRepository getInstance() {
+        if (intance == null) {
             intance = new LaunchRepository();
         }
-        return  intance;
+        return intance;
     }
 
-    private LaunchRepository(){
-
+    private LaunchRepository() {
         mutableLiveData = new MutableLiveData<>();
-
     }
 
     public ArrayList<Launch> Test4() throws IOException {
@@ -84,13 +84,7 @@ public class LaunchRepository {
 
     public MutableLiveData<List<Launch>> getLaunches() {
 
-
-        GetData getData = RetrofitInstance.getService();
-
         Call<List<Launch>> call = getData.getPastLaunches(2008);
-
-
-        Log.v("CALL5", call.toString());
 
         call.enqueue(new Callback<List<Launch>>() {
             @Override
@@ -99,8 +93,6 @@ public class LaunchRepository {
 
                 Log.v("CALL5", response.toString());
 
-                //launches = new ArrayList<>(response.body());
-
                 launches = (ArrayList<Launch>) response.body();
 
                 for (Launch launch : launches) {
@@ -108,9 +100,11 @@ public class LaunchRepository {
                 }
 
 
-                //Log.v("CALL6", "size = " + launches.size());
+                //Log.v("CALL5", "launches2 size = " + launches.size());
+                Log.v("CALL5", "mutableLiveData =  " + mutableLiveData.getValue());
+                Log.v("CALL5", "launches size = " + launches.size());
 
-                mutableLiveData.setValue(launches);
+                mutableLiveData.postValue(launches);
 
             }
 
@@ -120,9 +114,13 @@ public class LaunchRepository {
             }
         });
 
+        launches2 = launches;
 
-        Log.v("CALL5", "mutableLiveData =  " + mutableLiveData.getValue());
-        Log.v("CALL5", "launches size = " + launches.size());
+//        if (launches.size() != 0){
+//            Log.v("CALL5", "launches2 size = " + launches.size());
+//            Log.v("CALL5", "mutableLiveData =  " + mutableLiveData.getValue());
+//            Log.v("CALL5", "launches size = " + launches.size());
+//        }
 
         return mutableLiveData;
     }

@@ -57,39 +57,9 @@ public class MainActivity extends AppCompatActivity {
 
         mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
-        mainViewModel.getLaunches().observe(this, new Observer<List<Launch>>() {
-            @Override
-            public void onChanged(List<Launch> liveLaunches) {
-                launches = (ArrayList<Launch>) liveLaunches;
-                ShowOnRecyclerView();
+        getLaunches();
 
-                if (launches.size() == 0){
-                    Toast.makeText(MainActivity.this, "NULL LAUNCHES", Toast.LENGTH_SHORT).show();
-                }
-
-                Log.v("CALL7", "size = " + launches.size());
-
-            }
-        });
-
-        //getLaunches();
-
-        ShowOnRecyclerView();
-
-//        Thread Thead1 = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try  {
-//                    getLaunches();
-//
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//        Thead1.start();
-
-        swipeRefreshLayout = activityMainBinding.main;
+        swipeRefreshLayout = activityMainBinding.swipeLayout;
         swipeRefreshLayout.setColorSchemeResources(R.color.green);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -99,27 +69,22 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
     }
 
     private void getLaunches() {
-//        mainViewModel.getLaunches().observe(this, new Observer<List<Launch>>() {
-//            @Override
-//            public void onChanged(List<Launch> liveLaunches) {
-//                launches = (ArrayList<Launch>) liveLaunches;
+        mainViewModel.getLaunches().observe(this, new Observer<List<Launch>>() {
+            @Override
+            public void onChanged(List<Launch> liveLaunches) {
+                launches = (ArrayList<Launch>) liveLaunches;
                 ShowOnRecyclerView();
-//
-//                if (launches.size() == 0){
-//                    Toast.makeText(MainActivity.this, "NULL LAUNCHES", Toast.LENGTH_SHORT).show();
-//                }
-//
-//                Log.v("CALL6", "size = " + launches.size());
-//
-//            }
-//        });
+
+                if (launches.size() == 0) {
+                    Toast.makeText(MainActivity.this, "NULL LAUNCHES", Toast.LENGTH_SHORT).show();
+                }
+                Log.v("CALL6", "size = " + launches.size());
+
+            }
+        });
     }
 
     private void ShowOnRecyclerView() {
@@ -140,9 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setname() throws IOException {
 
-
         //launches = RetrofitInstance.Test4();
-
         String value = launches.get(1).mission_name;
 
         runOnUiThread(new Runnable() {
@@ -151,7 +114,5 @@ public class MainActivity extends AppCompatActivity {
                 //textView333.setText(value);
             }
         });
-
-
     }
 }

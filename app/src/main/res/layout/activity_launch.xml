@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="launch"
             type="com.example.spacex_api.models.main.Launch" />
@@ -33,23 +32,6 @@
                 app:expandedTitleTextAppearance="@android:color/transparent"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/ivMovieLarge"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fitsSystemWindows="true"
-                        android:scaleType="centerCrop"
-                        app:layout_collapseMode="parallax"
-                        bind:mission_patch="@{launch.links.mission_patch}" />
-
-
-                </RelativeLayout>
-
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:background="@color/green"
@@ -62,10 +44,9 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-<!--        <include
+        <include layout="@layout/content_launch"
             android:id="@+id/secondary_layout"
-            layout="@layout/content_launch"
-            bind:secondaryLaunch="@{launch}" /> -->
+            bind:secondaryLaunch="@{launch}"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

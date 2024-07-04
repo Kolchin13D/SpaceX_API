@@ -29,26 +29,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
- <!--               <ImageView
+                <ImageView
                     android:id="@+id/ivLaunch"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:scaleType="fitXY"
                     bind:mission_patch="@{launch.links.mission_patch}" />
--->
+
 
                 <TextView
                     android:id="@+id/flight_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/ivLaunch"
                     android:hint="flight_number"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:paddingRight="10dp"
-                    android:text="@{launch.flight_number}"
+                    android:text="@{String.valueOf(launch.flight_number)}"
                     android:textColor="@color/black"
                     android:textSize="15dp" />
+
 
                 <TextView
                     android:id="@+id/mission_name"
@@ -62,6 +64,7 @@
                     android:text="@{launch.mission_name}"
                     android:textColor="@color/black"
                     android:textSize="12dp" />
+
 
             </RelativeLayout>
 
