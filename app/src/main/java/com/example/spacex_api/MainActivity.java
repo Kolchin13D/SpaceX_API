@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+
+
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
@@ -90,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
     private void ShowOnRecyclerView() {
 
         recyclerView = activityMainBinding.rvLaunch;
+
         launchAdapter = new LaunchAdapter(this, launches);
 
         if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
@@ -101,18 +104,5 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(launchAdapter);
         launchAdapter.notifyDataSetChanged();
-    }
-
-    private void setname() throws IOException {
-
-        //launches = RetrofitInstance.Test4();
-        String value = launches.get(1).mission_name;
-
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                //textView333.setText(value);
-            }
-        });
     }
 }

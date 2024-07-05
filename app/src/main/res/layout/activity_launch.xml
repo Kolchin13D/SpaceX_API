@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="launch"
             type="com.example.spacex_api.models.main.Launch" />
@@ -15,7 +14,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.LaunchActivity">
+        tools:context="com.example.spacex_api.view.LaunchActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -23,7 +22,7 @@
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/ctbMovie"
+                android:id="@+id/ctLaunch"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
@@ -42,15 +41,14 @@
                         android:id="@+id/flight_number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="8dp"
                         android:hint="flight_number"
                         android:padding="16dp"
                         android:text="@{String.valueOf(launch.flight_number)}"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:layout_constraintLeft_creator="1"
@@ -60,13 +58,13 @@
                         android:id="@+id/mission_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="8dp"
                         android:hint="mission_name"
                         android:padding="16dp"
                         android:text="@{launch.mission_name}"
                         android:textColorHint="@color/black"
                         android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/flight_number"
                         tools:layout_constraintTop_creator="1" />
@@ -76,13 +74,14 @@
                         android:id="@+id/tvPlotsynopsis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="8dp"
                         android:hint="details"
                         android:padding="16dp"
                         android:text="@{launch.details}"
                         android:textColorHint="@color/black"
                         android:textSize="20sp"
-                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/mission_name" />
 
 
@@ -101,10 +100,11 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <include
+<!--        <include
             android:id="@+id/secondary_layout"
             layout="@layout/content_launch"
             bind:secondaryLaunch="@{launch}" />
+            -->
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

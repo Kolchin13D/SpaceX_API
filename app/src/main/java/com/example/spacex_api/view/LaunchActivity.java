@@ -3,6 +3,7 @@ package com.example.spacex_api.view;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +27,7 @@ public class LaunchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_launch);
+        TextView textView = findViewById(R.id.flight_number);
 
         androidx.appcompat.widget.Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -40,5 +42,7 @@ public class LaunchActivity extends AppCompatActivity {
             getSupportActionBar().setTitle(launch.getMission_name());
 
         }
+
+        textView.setText(launch.getMission_name());
     }
 }
