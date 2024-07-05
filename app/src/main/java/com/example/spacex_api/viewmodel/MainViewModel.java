@@ -30,20 +30,4 @@ public class MainViewModel extends ViewModel {
 
         return launchRepository.getLaunches();
     }
-
-    public List<Launch> getLaunches2(){
-
-        //return launchRepository.getMutableLiveData();
-
-        ArrayList<Launch> launches = new ArrayList<>();
-
-        try {
-            launches = launchRepository.Test4();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        return launches;
-
-    }
 }

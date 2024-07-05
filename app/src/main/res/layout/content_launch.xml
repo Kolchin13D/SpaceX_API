@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="com.mastercoding.movieproapp.view.MovieActivity"
+        tools:context="com.example.spacex_api.view.LaunchActivity"
         tools:showIn="@layout/activity_launch">
 
         <LinearLayout
@@ -34,7 +34,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/flight_number"
+                        android:hint="flight_number"
                         android:layout_marginLeft="10dp"
+                        android:textColor="@color/black"
                         android:padding="16dp"
                         android:layout_marginTop="3dp"
                         android:textSize="20sp"
@@ -50,6 +52,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/mission_name"
+                        android:hint="mission_name"
                         android:layout_marginLeft="10dp"
                         android:padding="16dp"
                         android:textSize="20sp"
@@ -65,6 +68,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/tvPlotsynopsis"
                         android:text="@{secondaryLaunch.details}"
+                        android:hint="details"
                         android:layout_marginLeft="10dp"
                         android:padding="16dp"
                         android:textSize="20sp"

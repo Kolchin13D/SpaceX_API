@@ -36,17 +36,6 @@ public class RetrofitInstance {
 
     //тесты для проверки отверки получения ответа. Функционал возврата запусков перенесен в LaunchRepository
 
-//    public static GetData getService() {
-//
-//        retrofit = new Retrofit.Builder()
-//                .baseUrl(BASE_URL2)
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build();
-//
-//        Log.v("TAG2", retrofit.create(GetData.class).toString());
-//        return retrofit.create(GetData.class);
-//    }
-
 //    public static String Test() throws IOException {
 //
 //        int page = 1;
