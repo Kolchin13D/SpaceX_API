@@ -23,9 +23,9 @@
                 android:id="@+id/amToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:background="@color/blue"
                 app:title="@string/app_name"
-                app:titleTextColor="@color/white"
-                android:background="@color/blue" />
+                app:titleTextColor="@color/white" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvLaunch"

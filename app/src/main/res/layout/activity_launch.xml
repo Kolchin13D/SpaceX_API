@@ -5,13 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="launch"
             type="com.example.spacex_api.models.main.Launch" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.example.spacex_api.view.LaunchActivity">
@@ -35,7 +35,19 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="200sp">
+                    android:background="@color/green"
+                    android:layout_marginTop="150sp">
+
+                    <ImageView
+                        android:id="@+id/ivLargePatch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        bind:mission_patch="@{launch.links.mission_patch}">
+
+                    </ImageView>
 
                     <TextView
                         android:id="@+id/flight_number"
@@ -50,7 +62,7 @@
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ivLargePatch"
                         tools:layout_constraintLeft_creator="1"
                         tools:layout_constraintTop_creator="1" />
 
@@ -75,11 +87,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
                         android:hint="details"
                         android:padding="16dp"
                         android:text="@{launch.details}"
                         android:textColorHint="@color/black"
                         android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/mission_name" />
@@ -93,18 +107,20 @@
                     android:layout_height="?attr/actionBarSize"
                     android:background="@color/blue"
                     app:layout_collapseMode="pin"
-                    app:popupTheme="@style/AppTheme.PopupOverlay" />
+                    app:popupTheme="@style/AppTheme.PopupOverlay"
+                    app:title="@{launch.mission_name}"
+                    app:titleTextColor="@color/white" />
 
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
 
-<!--        <include
-            android:id="@+id/secondary_layout"
-            layout="@layout/content_launch"
-            bind:secondaryLaunch="@{launch}" />
-            -->
+        <!--        <include
+                    android:id="@+id/secondary_layout"
+                    layout="@layout/content_launch"
+                    bind:secondaryLaunch="@{launch}" />
+                    -->
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

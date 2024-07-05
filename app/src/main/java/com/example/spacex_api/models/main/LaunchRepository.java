@@ -22,10 +22,7 @@ import retrofit2.Response;
 public class LaunchRepository {
 
     private static LaunchRepository intance;
-
     private ArrayList<Launch> launches = new ArrayList<>();
-
-    private ArrayList<Launch> launches2 = new ArrayList<>();
     private MutableLiveData<List<Launch>> mutableLiveData = new MutableLiveData<>();
 
     private static final GetData getData = RetrofitInstance.getService();
@@ -112,8 +109,6 @@ public class LaunchRepository {
                 Log.v("CALL5", t.toString());
             }
         });
-
-        launches2 = launches;
 
         return mutableLiveData;
     }
