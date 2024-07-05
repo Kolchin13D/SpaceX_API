@@ -146,7 +146,8 @@ public class Launch extends BaseObservable implements Parcelable {
     @BindingAdapter("mission_patch")
     public static void loadImage(ImageView imageView, String imageURL){
 
-        String imagePath = "https://images2.imgbox.com"+imageURL;
+        //String imagePath = "https://images2.imgbox.com"+imageURL;
+        String imagePath = imageURL;
 
         Glide.with(imageView.getContext())
                 .load(imagePath)

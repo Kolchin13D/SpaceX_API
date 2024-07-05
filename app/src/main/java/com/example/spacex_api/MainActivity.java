@@ -3,33 +3,24 @@ package com.example.spacex_api;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.spacex_api.adapters.LaunchAdapter;
 import com.example.spacex_api.databinding.ActivityMainBinding;
-import com.example.spacex_api.models.main.Launch;
 import com.example.spacex_api.models.Test.UserResponse;
-import com.example.spacex_api.models.main.LaunchRepository;
-import com.example.spacex_api.services.RetrofitInstance;
-import com.example.spacex_api.view.LaunchActivity;
+import com.example.spacex_api.models.main.Launch;
 import com.example.spacex_api.viewmodel.MainViewModel;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,14 +28,10 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<Launch> launches;
     ArrayList<UserResponse> users;
-
     private RecyclerView recyclerView;
     private LaunchAdapter launchAdapter;
-
     private SwipeRefreshLayout swipeRefreshLayout;
-
     private MainViewModel mainViewModel;
-
     private ActivityMainBinding activityMainBinding;
 
     @Override
@@ -52,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-
-
 
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
