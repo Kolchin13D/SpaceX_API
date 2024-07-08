@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="15dp"
-            android:background="@color/white"
+            android:background="@drawable/background"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:contex="com.example.spacex_api.MainActivity"
             tools:showIn="@layout/activity_main">
@@ -23,7 +23,7 @@
                 android:id="@+id/amToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/blue"
+                android:background="@color/black"
                 app:title="@string/app_name"
                 app:titleTextColor="@color/white" />
 

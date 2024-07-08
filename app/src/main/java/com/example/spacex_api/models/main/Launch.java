@@ -144,7 +144,7 @@ public class Launch extends BaseObservable implements Parcelable {
     }
 
     @BindingAdapter("mission_patch")
-    public static void loadImage(ImageView imageView, String imageURL){
+    public static void loadImage(ImageView imageView, String imageURL) {
 
         //String imagePath = "https://images2.imgbox.com"+imageURL;
         String imagePath = imageURL;
@@ -164,90 +164,112 @@ public class Launch extends BaseObservable implements Parcelable {
     public int getFlight_number() {
         return flight_number;
     }
+
     @Bindable
     public String getMission_name() {
         return mission_name;
     }
+
     @Bindable
     public ArrayList<String> getMission_id() {
         return mission_id;
     }
+
     @Bindable
     public boolean isUpcoming() {
         return upcoming;
     }
+
     @Bindable
     public String getLaunch_year() {
         return launch_year;
     }
+
     @Bindable
     public int getLaunch_date_unix() {
         return launch_date_unix;
     }
+
     @Bindable
     public Date getLaunch_date_utc() {
         return launch_date_utc;
     }
+
     @Bindable
     public Date getLaunch_date_local() {
         return launch_date_local;
     }
+
     @Bindable
     public boolean isIs_tentative() {
         return is_tentative;
     }
+
     @Bindable
     public String getTentative_max_precision() {
         return tentative_max_precision;
     }
+
     @Bindable
     public boolean isTbd() {
         return tbd;
     }
+
     @Bindable
     public int getLaunch_window() {
         return launch_window;
     }
+
     @Bindable
     public Rocket getRocket() {
         return rocket;
     }
+
     @Bindable
     public ArrayList<String> getShips() {
         return ships;
     }
+
     @Bindable
     public Telemetry getTelemetry() {
         return telemetry;
     }
+
     @Bindable
     public LaunchSite getLaunch_site() {
         return launch_site;
     }
+
     @Bindable
     public boolean isLaunch_success() {
         return launch_success;
     }
+
     @Bindable
     public LaunchFailureDetails getLaunch_failure_details() {
         return launch_failure_details;
     }
+
     @Bindable
     public Links getLinks() {
         return links;
     }
+
     @Bindable
     public String getDetails() {
         return details;
     }
+
     @Bindable
     public Date getStatic_fire_date_utc() {
         return static_fire_date_utc;
     }
+
     @Bindable
     public int getStatic_fire_date_unix() {
         return static_fire_date_unix;
     }
+
     @Bindable
     public Timeline getTimeline() {
         return timeline;
@@ -277,7 +299,7 @@ public class Launch extends BaseObservable implements Parcelable {
         dest.writeValue(static_fire_date_unix);
     }
 
-    public final static  Parcelable.Creator<Launch> CREATOR2 = new Creator<Launch>() {
+    public final static Parcelable.Creator<Launch> CREATOR2 = new Creator<Launch>() {
         @Override
         public Launch createFromParcel(Parcel source) {
             return new Launch(source);

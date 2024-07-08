@@ -34,23 +34,24 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/green"
-                    android:layout_marginTop="150sp">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="60sp"
+                    android:background="@color/white">
 
                     <ImageView
                         android:id="@+id/ivLargePatch"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="8dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:scaleType="fitXY"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        bind:mission_patch="@{launch.links.mission_patch}">
-
-                    </ImageView>
+                        bind:mission_patch="@{launch.links.mission_patch}" />
 
                     <TextView
-                        android:id="@+id/flight_number"
+                        android:id="@+id/actflight_number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -67,44 +68,42 @@
                         tools:layout_constraintTop_creator="1" />
 
                     <TextView
-                        android:id="@+id/mission_name"
+                        android:id="@+id/actmission_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:hint="mission_name"
                         android:padding="16dp"
                         android:text="@{launch.mission_name}"
+                        android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/flight_number"
+                        app:layout_constraintTop_toBottomOf="@+id/actflight_number"
                         tools:layout_constraintTop_creator="1" />
 
-
                     <TextView
-                        android:id="@+id/tvPlotsynopsis"
+                        android:id="@+id/actdetails"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
                         android:hint="details"
                         android:padding="16dp"
                         android:text="@{launch.details}"
+                        android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="20sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/mission_name" />
-
+                        app:layout_constraintTop_toBottomOf="@+id/actmission_name" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
+                    android:layout_height="60sp"
                     android:background="@color/blue"
                     app:layout_collapseMode="pin"
                     app:popupTheme="@style/AppTheme.PopupOverlay"
@@ -113,14 +112,6 @@
 
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
-
         </com.google.android.material.appbar.AppBarLayout>
-
-        <!--        <include
-                    android:id="@+id/secondary_layout"
-                    layout="@layout/content_launch"
-                    bind:secondaryLaunch="@{launch}" />
-                    -->
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

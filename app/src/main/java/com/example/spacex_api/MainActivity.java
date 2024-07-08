@@ -1,8 +1,10 @@
 package com.example.spacex_api;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -15,10 +17,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.example.spacex_api.adapters.LaunchAdapter;
+import com.example.spacex_api.adapters.LaunchRecyclerView;
 import com.example.spacex_api.databinding.ActivityMainBinding;
 import com.example.spacex_api.models.Test.UserResponse;
 import com.example.spacex_api.models.main.Launch;
+import com.example.spacex_api.view.LaunchActivity;
 import com.example.spacex_api.viewmodel.MainViewModel;
 
 import java.util.ArrayList;
@@ -29,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Launch> launches;
     ArrayList<UserResponse> users;
     private RecyclerView recyclerView;
-    private LaunchAdapter launchAdapter;
+    private LaunchRecyclerView launchAdapter;
     private SwipeRefreshLayout swipeRefreshLayout;
+
     private MainViewModel mainViewModel;
     private ActivityMainBinding activityMainBinding;
 
@@ -54,8 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 getLaunches();
             }
         });
-
-
     }
 
     private void getLaunches() {
@@ -77,8 +79,7 @@ public class MainActivity extends AppCompatActivity {
     private void ShowOnRecyclerView() {
 
         recyclerView = activityMainBinding.rvLaunch;
-
-        launchAdapter = new LaunchAdapter(this, launches);
+        launchAdapter = new LaunchRecyclerView(this, launches);
 
         if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
@@ -89,5 +90,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(launchAdapter);
         launchAdapter.notifyDataSetChanged();
+
     }
 }
