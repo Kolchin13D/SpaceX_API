@@ -17,6 +17,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.databinding.DataBindingUtil;
 
+import com.bumptech.glide.Glide;
 import com.example.spacex_api.MainActivity;
 import com.example.spacex_api.R;
 import com.example.spacex_api.databinding.ActivityLaunchBinding;
@@ -29,6 +30,9 @@ public class LaunchActivity extends AppCompatActivity {
 
     private ImageView imageView;
     private TextView number, name, details;
+    private Toolbar toolbar;
+
+    private int value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,7 @@ public class LaunchActivity extends AppCompatActivity {
         number = findViewById(R.id.actflight_number);
         name = findViewById(R.id.actmission_name);
         details = findViewById(R.id.actdetails);
+        toolbar = findViewById(R.id.toolbarLaunch);
 
         GetDataFromIntent();
     }
@@ -49,18 +54,25 @@ public class LaunchActivity extends AppCompatActivity {
 
             Intent intent = getIntent();
             Launch launch = intent.getParcelableExtra("launch");
-
-
-
             Log.v("CALL8", "intent = " + launch.mission_name);
+            Toast.makeText(this, "LAUNCH  " + launch.mission_name, Toast.LENGTH_SHORT).show();
 
-            String name2 = getIntent().getStringExtra("name");
-            Toast.makeText(this, "")
 
-            imageView.setImageDrawable(Drawable.createFromPath(getIntent().getStringExtra("img")));
+            String imagePath = getIntent().getStringExtra("img");
+            Glide.with(imageView.getContext())
+                    .load(imagePath)
+                    .into(imageView);
+
+            number.setText(String.valueOf(intent.getIntExtra("num", 0)));
+            Log.v("CALL8", "intent = " + getIntent().getStringExtra("num"));
+
             name.setText(getIntent().getStringExtra("name"));
             details.setText(getIntent().getStringExtra("details"));
+            String title = getIntent().getStringExtra("name") + " / "
+                    + String.valueOf(intent.getIntExtra("num", 0)
+            );
 
+            toolbar.setTitle(title);
 
         }
     }

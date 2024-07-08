@@ -34,7 +34,5 @@ public class MainViewModel extends ViewModel {
         Log.v("CALL6", "size = " + launchRepository.getLaunches().getValue());
         return launchRepository.getLaunches();
     }
-
-
 }
 

@@ -11,107 +11,85 @@
             type="com.example.spacex_api.models.main.Launch" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.spacex_api.view.LaunchActivity">
+        android:background="@color/green">
 
-        <com.google.android.material.appbar.AppBarLayout
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarLaunch"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/black"
+            app:layout_collapseMode="pin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="@{launch.mission_name}"
+            app:titleTextColor="@color/white" />
 
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/ctLaunch"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                app:contentScrim="?attr/colorPrimary"
-                app:expandedTitleMarginEnd="64dp"
-                app:expandedTitleMarginStart="48dp"
-                app:expandedTitleTextAppearance="@android:color/transparent"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+        <ImageView
+            android:id="@+id/ivLargePatch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarLaunch"
+            bind:mission_patch="@{launch.links.mission_patch}" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="60sp"
-                    android:background="@color/white">
+        <TextView
+            android:id="@+id/actflight_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="flight_number"
+            android:padding="16dp"
+            android:text="@{String.valueOf(launch.flight_number)}"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivLargePatch"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1" />
 
-                    <ImageView
-                        android:id="@+id/ivLargePatch"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_marginTop="8dp"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:scaleType="fitXY"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        bind:mission_patch="@{launch.links.mission_patch}" />
+        <TextView
+            android:id="@+id/actmission_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="mission_name"
+            android:padding="16dp"
+            android:text="@{launch.mission_name}"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/actflight_number"
+            tools:layout_constraintTop_creator="1" />
 
-                    <TextView
-                        android:id="@+id/actflight_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:hint="flight_number"
-                        android:padding="16dp"
-                        android:text="@{String.valueOf(launch.flight_number)}"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="20sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/ivLargePatch"
-                        tools:layout_constraintLeft_creator="1"
-                        tools:layout_constraintTop_creator="1" />
+        <TextView
+            android:id="@+id/actdetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="details"
+            android:padding="16dp"
+            android:text="@{launch.details}"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/actmission_name" />
 
-                    <TextView
-                        android:id="@+id/actmission_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:hint="mission_name"
-                        android:padding="16dp"
-                        android:text="@{launch.mission_name}"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="20sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/actflight_number"
-                        tools:layout_constraintTop_creator="1" />
-
-                    <TextView
-                        android:id="@+id/actdetails"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:hint="details"
-                        android:padding="16dp"
-                        android:text="@{launch.details}"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="20sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/actmission_name" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="60sp"
-                    android:background="@color/blue"
-                    app:layout_collapseMode="pin"
-                    app:popupTheme="@style/AppTheme.PopupOverlay"
-                    app:title="@{launch.mission_name}"
-                    app:titleTextColor="@color/white" />
-
-
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-        </com.google.android.material.appbar.AppBarLayout>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

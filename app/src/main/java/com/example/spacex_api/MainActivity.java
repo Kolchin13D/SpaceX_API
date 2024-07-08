@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
         mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
         getLaunches();

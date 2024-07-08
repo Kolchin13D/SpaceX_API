@@ -85,6 +85,7 @@ public class LaunchRecyclerView extends RecyclerView.Adapter<LaunchRecyclerView.
 
                         intent.putExtra("img", selectedLaunch.links.mission_patch);
                         intent.putExtra("launch", selectedLaunch);
+                        intent.putExtra("num", selectedLaunch.flight_number);
                         intent.putExtra("name", selectedLaunch.mission_name);
                         intent.putExtra("details", selectedLaunch.details);
 
