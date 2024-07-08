@@ -53,17 +53,16 @@ public class LaunchActivity extends AppCompatActivity {
         if (getIntent().hasExtra("launch")) {
 
             Intent intent = getIntent();
-            Launch launch = intent.getParcelableExtra("launch");
-            Log.v("CALL8", "intent = " + launch.mission_name);
-            Toast.makeText(this, "LAUNCH  " + launch.mission_name, Toast.LENGTH_SHORT).show();
-
+//            Launch launch = intent.getParcelableExtra("launch");
+//            Log.v("CALL8", "intent = " + launch.mission_name);
+//            Toast.makeText(this, "LAUNCH  " + launch.mission_name, Toast.LENGTH_SHORT).show();
 
             String imagePath = getIntent().getStringExtra("img");
             Glide.with(imageView.getContext())
                     .load(imagePath)
                     .into(imageView);
 
-            number.setText(String.valueOf(intent.getIntExtra("num", 0)));
+            number.setText("Flight number # " + String.valueOf(intent.getIntExtra("num", 0)));
             Log.v("CALL8", "intent = " + getIntent().getStringExtra("num"));
 
             name.setText(getIntent().getStringExtra("name"));

@@ -11,10 +11,14 @@
             type="com.example.spacex_api.models.main.Launch" />
     </data>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/green">
+        android:background="@drawable/background">
 
 
         <androidx.appcompat.widget.Toolbar
@@ -47,7 +51,10 @@
             android:id="@+id/actflight_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/white"
             android:hint="flight_number"
             android:padding="16dp"
             android:text="@{String.valueOf(launch.flight_number)}"
@@ -55,7 +62,7 @@
             android:textColorHint="@color/black"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivLargePatch"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintTop_creator="1" />
@@ -64,7 +71,10 @@
             android:id="@+id/actmission_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/white"
             android:hint="mission_name"
             android:padding="16dp"
             android:text="@{launch.mission_name}"
@@ -72,7 +82,7 @@
             android:textColorHint="@color/black"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/actflight_number"
             tools:layout_constraintTop_creator="1" />
 
@@ -80,16 +90,24 @@
             android:id="@+id/actdetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/white"
             android:hint="details"
             android:padding="16dp"
             android:text="@{launch.details}"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/actmission_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
 </layout>
