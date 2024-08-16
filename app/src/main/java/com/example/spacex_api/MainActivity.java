@@ -1,10 +1,8 @@
 package com.example.spacex_api;
 
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -19,9 +17,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.spacex_api.adapters.LaunchRecyclerView;
 import com.example.spacex_api.databinding.ActivityMainBinding;
-import com.example.spacex_api.models.Test.UserResponse;
 import com.example.spacex_api.models.main.Launch;
-import com.example.spacex_api.view.LaunchActivity;
 import com.example.spacex_api.viewmodel.MainViewModel;
 
 import java.util.ArrayList;
@@ -30,7 +26,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Launch> launches;
-    ArrayList<UserResponse> users;
+    //ArrayList<UserResponse> users;
     private RecyclerView recyclerView;
     private LaunchRecyclerView launchAdapter;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -66,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 launches = (ArrayList<Launch>) liveLaunches;
                 ShowOnRecyclerView();
 
-                if (launches.size() == 0) {
+                if (launches.isEmpty()) {
                     Toast.makeText(MainActivity.this, "NULL LAUNCHES", Toast.LENGTH_SHORT).show();
                 }
                 Log.v("CALL6", "size = " + launches.size());
